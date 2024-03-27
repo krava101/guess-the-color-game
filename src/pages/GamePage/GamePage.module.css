@@ -1,0 +1,31 @@
+
+.bottleList {
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin: 40px 0 20px;
+}
+
+.bottle {
+    position: relative;
+    width: 80px;
+    height: 150px;
+    border-radius: 30px 30px 10px 10px;
+    color: transparent;
+    border: 1px solid #000;
+}
+
+.bottle::before {
+    content: "";
+    position: absolute;
+    top: -21px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #1e40fd;
+    border: 1px solid #000;
+}
