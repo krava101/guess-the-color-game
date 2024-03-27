@@ -1,0 +1,54 @@
+.bottleList {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    gap: 20px;
+    padding: 0 20px;
+    list-style: none;
+    margin: 40px 0 0;
+}
+
+.bottle {
+    position: relative;
+    width: 80px;
+    height: 150px;
+    border-radius: 30px 30px 10px 10px;
+    color: transparent;
+    border: 1px solid #000;
+    border-bottom: none;
+}
+
+.bottleLid {
+    position: absolute;
+    top: -21px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    border-radius: 6px;
+    background-color: #1e40fd;
+    border: 1px solid #000;
+}
+
+.bottleLid::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 3px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 150% 0 0 250%;
+}
+
+.bottle::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    transform: rotate(-4deg);
+    width: 10px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 150% 0 150% 0;
+}

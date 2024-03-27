@@ -13,7 +13,7 @@ export default function GameBar({ onSubmit }) {
         type="number"
         name="lengthInp"
         id="length"
-        min="4"
+        min="3"
         max="10"
       />
       <button type="submit">Play</button>

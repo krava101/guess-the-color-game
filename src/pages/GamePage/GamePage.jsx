@@ -3,7 +3,8 @@ import GameBar from "../../components/GameBar/GameBar";
 import { useEffect, useState } from "react";
 import { getUniqNumber } from "../../getUniqNum";
 import css from './GamePage.module.css';
-import { colors } from '../../dataColors';
+import BottleList from "../../components/BottleList/BottleList";
+import Curtain from "../../components/Curtain/Curtain";
 
 
 export default function GamePage() {
@@ -17,6 +18,7 @@ export default function GamePage() {
     if (length) {
       setBottles(getUniqNumber(length));
       setNumbers(getUniqNumber(length));
+      console.log(bottles, numbers);
       setLength(0);
     }
     if (secondBottle) {
@@ -60,22 +62,23 @@ export default function GamePage() {
     return coincidence
   }
 
+  const winCondition = getCoincidence() == bottles.length && bottles.length > 0;
+
   return (
     <div>
       <NavLink to='/'>Home</NavLink>
       <GameBar onSubmit={setNewLength} />
-      <ul className={css.bottleList} onClick={handleBottleClick}>
-        {bottles.length > 0 && bottles.map((b, i) =>
-          <li
-            key={i}
-            className={css.bottle}
-            style={{ backgroundColor: colors[b] }}
-            data-num={b}>
-          </li>
-        )}
-      </ul>
       <p>Correct: {getCoincidence()}</p> 
-      {getCoincidence() == bottles.length && bottles.length > 0 && <p>You win!</p>}
+      {/* {condition && <p>You win!</p>} */}
+      <BottleList onClick={handleBottleClick} arr={bottles}/>
+      <div className={css.table}>
+        <div className={css.tableLeg}>
+          <div className={css.shelf}>
+            {winCondition && <BottleList arr={numbers} />}
+          </div>
+          <Curtain winCondition={winCondition}/>
+        </div>
+      </div>
     </div>
   )
 }
